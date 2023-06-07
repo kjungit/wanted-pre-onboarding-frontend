@@ -3,11 +3,11 @@ import { getAccessTokenLocalStorage } from "../utils/localStorage";
 
 const getAxiosInstance = (accessTokenNeeded = true) => {
   const config: AxiosRequestConfig = {
-    baseURL: "https://www.pre-onboarding-selection-task.shop/",
+    baseURL: "https://www.pre-onboarding-selection-task.shop",
     headers: {
+      "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
     },
-    withCredentials: true,
   };
 
   const instance = axios.create(config);
