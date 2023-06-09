@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { getAccessTokenLocalStorage } from "../utils/localStorage";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function ProtectedRouter() {
   const isToken = getAccessTokenLocalStorage("accessToken");
@@ -8,7 +10,10 @@ function ProtectedRouter() {
 
   useEffect(() => {
     if (["/todo"].includes(window.location.pathname) && isToken === null) {
-      alert("로그인 후 해당 페이지에 접근할 수 있습니다. 😅");
+      toast.error("로그인 후 해당 페이지에 접근할 수 있습니다. 😅", {
+        theme: "dark",
+        autoClose: 3000,
+      });
       navigate("/signin");
       return;
     }
@@ -17,13 +22,21 @@ function ProtectedRouter() {
       ["/signup", "/signin"].includes(window.location.pathname) &&
       isToken !== null
     ) {
-      alert("현재 로그인이 되어있습니다. 😊");
+      toast.error("현재 로그인이 되어있습니다. 😊", {
+        theme: "dark",
+        autoClose: 3000,
+      });
       navigate("/todo");
       return;
     }
   }, [isToken, navigate]);
 
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+      <ToastContainer />
+    </>
+  );
 }
 
 export default ProtectedRouter;
