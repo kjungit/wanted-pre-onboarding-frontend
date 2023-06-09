@@ -1,4 +1,6 @@
 import { signHandlerProps, validateInputProps } from "../type/auth";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 // 이메일 유효성 검사 함수
 export const isValidEmail = (email: string) => {
@@ -25,7 +27,6 @@ export const validateInput = ({
   }
 
   if (password.length < 8) {
-    console.log(password.length);
     newFormErrors.passwordError = "비밀번호는 8자 이상이어야 합니다.";
     isDisabled = true;
   }
@@ -83,7 +84,10 @@ export const signHandler = ({
 
   if (!isEmptyErrors) {
     setFormErrors(newFormErrors);
-    alert("입력한 정보를 다시 확인해주세요. 😅");
+    toast.error("입력한 정보를 다시 확인해주세요. 😅", {
+      theme: "dark",
+      autoClose: 3000,
+    });
   } else {
     setFormErrors({
       emailError: "",
