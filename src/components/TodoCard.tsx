@@ -59,6 +59,10 @@ function TodoCard({
   const modifyHandler = () => {
     updateTodo({ id, todo: editInputTodo, isCompleted: completed }).then(
       (data) => {
+        toast.success("수정이 완료되었습니다.", {
+          theme: "dark",
+          autoClose: 3000,
+        });
         setEditState(!editState);
         setTodoListResponse();
       }

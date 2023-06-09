@@ -40,7 +40,7 @@ function TodoInput() {
   };
 
   return (
-    <div className="m-auto mt-6 flex max-w-md items-center gap-x-4">
+    <form className="m-auto mt-6 flex max-w-md items-center gap-x-4">
       <input
         id="email-address"
         name="email"
@@ -61,7 +61,7 @@ function TodoInput() {
         Add
       </button>
       <ToastContainer />
-    </div>
+    </form>
   );
 }
 
