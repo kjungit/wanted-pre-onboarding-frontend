@@ -1,20 +1,5 @@
+import { EditTodoRequestProps, TodoResponseProps } from "../../type/todo";
 import { axiosInstance } from "../axios";
-
-interface TodoProps {
-  todo: string;
-}
-
-export interface TodoResponseProps extends TodoProps {
-  id: number;
-  isCompleted: boolean;
-  userId: number;
-}
-
-interface EditTodoRequestProps {
-  id: number;
-  todo?: string;
-  isCompleted?: boolean;
-}
 
 export const createTodo = async (todo: string) => {
   const { data } = await axiosInstance(true).post<TodoResponseProps>("/todos", {
