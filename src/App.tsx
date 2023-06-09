@@ -1,13 +1,16 @@
 import "./App.css";
 import AuthProvider from "./hooks/useAuthContext";
+import TodoProvider from "./hooks/useTodoContext";
 import Routers from "./routers/Router";
 
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
-        <Routers />
-      </div>
+      <TodoProvider>
+        <div className="App">
+          <Routers />
+        </div>
+      </TodoProvider>
     </AuthProvider>
   );
 }
