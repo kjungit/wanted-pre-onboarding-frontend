@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# wanted-pre-onboarding-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 이름 : 권범준
+- 프로젝트 실행 방법
+```
+git clone https://github.com/kjungit/wanted-pre-onboarding-frontend.git
+npm install
+npm start
+```
 
-## Available Scripts
+### 배포링크
+- https://todolist-seven-ochre.vercel.app/
+---
+---
 
-In the project directory, you can run:
+## 🖥 프로젝트 소개
+---
 
-### `npm start`
+### 회원가입
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/7307f41f-2315-46d0-be65-622865e68f2f" width="800px">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 회원가입이 완료되면 로그인 페이지로 이동
+- 유효성검사 로직 구현
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+### 로그인
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/386b467f-3cf6-4e45-84f2-ba816aa40c5d" width="800px">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 로그인 후 todo 페이지로 이동
+- 유효성검사 로직 구현
+<br/>
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Todo 등록
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/c139731e-9ba9-4e53-b704-62cd1f478c16" width="800px">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Todo 등록시 등록한 todo목록 갱신
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 완료 항목 체크
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/72fc5797-d525-4b9c-b36b-1f21e9567b16" width="800px">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 완료 항목을 체크하게 되면 수정 API로 완료 여부 등록 후 todo 목록 갱신
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Todo 내용 수정
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/5ef6996a-9a06-4f94-b3e0-370bda3de4df" width="800px">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Todo 내용 수정 후 API 호출 및 todo 목록 갱신
+<br/>
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Todo 아이템 삭제
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/a63fa114-a35f-4b76-add7-7542505b4675" width="800px">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Todo 개별 삭제 가능
+<br/>
+
+---
+
+
+### 로그인 여부에 따른 리다이렉트
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/b4e17dc8-d019-4f5f-9473-0b6355cc8aca" width="800px">
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/968e2b65-9353-44ef-862b-c1f96bbf3692" width="800px">
+
+- 로그인을 한 상태에 signin, signup 페이지 접근시 todo 페이지로 이동
+- 로그인을 하지 않은 상태에 todo 페이지 접근시 signin 페이지로 이동
+<br/>
+
+---
+
+
+
+
