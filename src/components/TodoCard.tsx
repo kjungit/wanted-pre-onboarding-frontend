@@ -93,10 +93,18 @@ function TodoCard({
           </label>
           {editState ? (
             <div className="flex w-[100px] justify-between">
-              <button className={buttonS} onClick={canceledHandler}>
+              <button
+                className={buttonS}
+                onClick={canceledHandler}
+                data-testid="cancel-button"
+              >
                 취소
               </button>
-              <button className={buttonS} onClick={modifyHandler}>
+              <button
+                className={buttonS}
+                onClick={modifyHandler}
+                data-testid="submit-button"
+              >
                 확인
               </button>
             </div>
@@ -124,6 +132,7 @@ function TodoCard({
           <input
             ref={inputRef}
             type="text"
+            data-testid="modify-input"
             className="mt-3 w-full rounded-md bg-gray-200 p-2 text-black"
             placeholder={todo}
             onChange={todoInputHandler}
