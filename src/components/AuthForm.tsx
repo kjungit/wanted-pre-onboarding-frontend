@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validateInput } from "../../utils/sign";
-import { signUp, signIn } from "../../apis/services/auth";
-import { AuthContext } from "../../hooks/useAuthContext";
+import { validateInput } from "../utils/sign";
+import { signUp, signIn } from "../apis/services/auth";
+import { AuthContext } from "../hooks/useAuthContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const { isLogined, setIsLogined } = useContext(AuthContext);
@@ -41,11 +43,17 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
         const message = isSignUp
           ? "회원가입이 완료되었습니다."
           : "로그인이 완료되었습니다.";
-        alert(message);
+        toast.success(message, {
+          theme: "dark",
+          autoClose: 3000,
+        });
         navigate(isSignUp ? "/signin" : "/todo");
       })
-      .catch(() => {
-        alert("다시 시도해주세요.");
+      .catch((error) => {
+        toast.error(error.response.data.message, {
+          theme: "dark",
+          autoClose: 3000,
+        });
       });
   };
 
@@ -72,7 +80,7 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
               type="email"
               data-testid="email-input"
               onChange={inputChangeHandler}
-              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
             />
             <div className="mt-2 flex h-2 items-start text-xs text-red-700">
               {emailError ? emailError : ""}
@@ -92,7 +100,7 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
               type="password"
               data-testid="password-input"
               onChange={inputChangeHandler}
-              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-800 sm:text-sm sm:leading-6"
             />
             <div className="mt-2 flex h-2 items-start text-xs text-red-700">
               {passwordError ? passwordError : ""}
@@ -109,16 +117,17 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
             type="submit"
             disabled={isDisabled}
             data-testid={isSignUp ? "signup-button" : "signin-button"}
-            className={`mt-[50px] flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+            className={`mt-[50px] flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 ${
               isDisabled
                 ? "bg-gray-300 text-gray-600"
-                : "bg-indigo-600 text-white hover:bg-indigo-500"
+                : "bg-black text-white hover:bg-gray-700"
             }`}
           >
             {isSignUp ? "회원가입" : "로그인"}
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }

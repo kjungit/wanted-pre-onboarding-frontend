@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { removeAccessTokenLocalStorage } from "../../utils/localStorage";
+import { removeAccessTokenLocalStorage } from "../utils/localStorage";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../hooks/useAuthContext";
+import { AuthContext } from "../hooks/useAuthContext";
 
 function Header() {
   const { isLogined, setIsLogined } = useContext(AuthContext);
@@ -13,15 +13,25 @@ function Header() {
     navigate("/signin");
   };
 
+  const mainLogoHandler = () => {
+    navigate("/");
+  };
+
   return (
     <nav className="bg-black">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-end ">
+        <div className="relative flex h-16 items-center justify-between ">
+          <h1
+            onClick={mainLogoHandler}
+            className="cursor-pointer text-sm font-bold text-white sm:text-xl"
+          >
+            wanted-pre-onboarding-frontend
+          </h1>
           {isLogined ? (
             <div>
               <button
                 onClick={logoutHandler}
-                className="nline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="nline-flex items-center justify-center rounded-md p-2 font-bold text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 로그아웃
               </button>
