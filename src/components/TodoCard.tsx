@@ -59,10 +59,6 @@ function TodoCard({
   const modifyHandler = () => {
     updateTodo({ id, todo: editInputTodo, isCompleted: completed }).then(
       (data) => {
-        toast.success("수정이 완료되었습니다.", {
-          theme: "dark",
-          autoClose: 3000,
-        });
         setEditState(!editState);
         setTodoListResponse();
       }
@@ -80,7 +76,7 @@ function TodoCard({
   };
 
   return (
-    <li className="flex max-w-xl flex-col items-center justify-between rounded-2xl border-2 p-4">
+    <li className="max-w flex flex-col items-center justify-between rounded-2xl border-2 p-4">
       <div className="group relative min-w-full">
         <div className="flex items-center justify-between ">
           <label className="flex">
