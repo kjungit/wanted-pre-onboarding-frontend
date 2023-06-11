@@ -19,11 +19,11 @@ function Header() {
 
   return (
     <nav className="bg-black">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between ">
+      <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between h-16 ">
           <h1
             onClick={mainLogoHandler}
-            className="cursor-pointer text-sm font-bold text-white sm:text-xl"
+            className="text-sm font-bold text-white cursor-pointer sm:text-xl"
           >
             wanted-pre-onboarding-frontend
           </h1>
@@ -31,18 +31,18 @@ function Header() {
             <div>
               <button
                 onClick={logoutHandler}
-                className="nline-flex items-center justify-center rounded-md p-2 font-bold text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="items-center justify-center p-2 font-bold text-gray-200 rounded-md nline-flex hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 로그아웃
               </button>
             </div>
           ) : (
-            <div>
+            <div className="flex text-sm sm:text-[16px] ">
               <button
                 onClick={() => {
                   navigate("/signin");
                 }}
-                className="nline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="items-center justify-center p-2 text-gray-200 rounded-md nline-flex hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 로그인
               </button>
@@ -50,7 +50,7 @@ function Header() {
                 onClick={() => {
                   navigate("/signup");
                 }}
-                className="nline-flex items-center justify-center rounded-md p-2 text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="items-center justify-center p-2 text-gray-200 rounded-md nline-flex hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 회원가입
               </button>

@@ -46,10 +46,17 @@ function TodoCard({
   const completedHandler = () => {
     updateTodo({ id, todo: editInputTodo, isCompleted: !completed }).then(
       (data) => {
-        toast.success("수정이 완료되었습니다.", {
-          theme: "dark",
-          autoClose: 3000,
-        });
+        if (data.isCompleted) {
+          toast.success("✅ 완료 처리 되었습니다.", {
+            theme: "dark",
+            autoClose: 3000,
+          });
+        } else {
+          toast.success("❌ 취소 처리 되었습니다.", {
+            theme: "dark",
+            autoClose: 3000,
+          });
+        }
         setCompleted(data.isCompleted);
         setTodoListResponse();
       }
@@ -80,8 +87,8 @@ function TodoCard({
   };
 
   return (
-    <li className="max-w flex flex-col items-center justify-between rounded-2xl border-2 p-4">
-      <div className="group relative min-w-full">
+    <li className="flex flex-col items-center justify-between p-4 border-2 max-w rounded-2xl">
+      <div className="relative min-w-full group">
         <div className="flex items-center justify-between ">
           <label className="flex">
             <input
@@ -137,12 +144,12 @@ function TodoCard({
             ref={inputRef}
             type="text"
             data-testid="modify-input"
-            className="mt-3 w-full rounded-md bg-gray-200 p-2 text-black"
+            className="w-full p-2 mt-3 text-black bg-gray-200 rounded-md"
             placeholder={todo}
             onChange={todoInputHandler}
           />
         ) : (
-          <p className="text-md mt-5 text-left leading-6 text-gray-600">
+          <p className="mt-5 leading-6 text-left text-gray-600 text-md">
             {todo}
           </p>
         )}

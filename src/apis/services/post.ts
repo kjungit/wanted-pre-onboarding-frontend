@@ -14,7 +14,6 @@ export const getTodos = async () => {
 };
 
 export const updateTodo = async (editTodo: EditTodoRequestProps) => {
-  console.log(editTodo);
   const { id, todo, isCompleted } = editTodo;
   const { data } = await axiosInstance().put<TodoResponseProps>(
     `/todos/${id}`,

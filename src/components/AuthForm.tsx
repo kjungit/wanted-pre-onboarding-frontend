@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validateInput } from "../utils/sign";
 import { signUp, signIn } from "../apis/services/auth";
@@ -8,12 +8,19 @@ import { ToastContainer, toast } from "react-toastify";
 
 function AuthForm({ isSignUp }: { isSignUp: boolean }) {
   const { isLogined, setIsLogined } = useContext(AuthContext);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [authInput, setAuthInput] = useState({ email: "", password: "" });
   const [formErrors, setFormErrors] = useState({
     emailError: "",
     passwordError: "",
   });
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
 
@@ -78,11 +85,12 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
             <input
               name="email"
               type="email"
+              ref={inputRef}
               data-testid="email-input"
               onChange={inputChangeHandler}
-              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-2  px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
             />
-            <div className="mt-2 flex h-2 items-start text-xs text-red-700">
+            <div className="flex items-start h-2 mt-2 text-xs text-red-700">
               {emailError ? emailError : ""}
             </div>
           </div>
@@ -98,11 +106,12 @@ function AuthForm({ isSignUp }: { isSignUp: boolean }) {
             <input
               name="password"
               type="password"
+              autoComplete="off"
               data-testid="password-input"
               onChange={inputChangeHandler}
-              className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-800 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-2 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-800 sm:text-sm sm:leading-6"
             />
-            <div className="mt-2 flex h-2 items-start text-xs text-red-700">
+            <div className="flex items-start h-2 mt-2 text-xs text-red-700">
               {passwordError ? passwordError : ""}
               {authInput.password.length < 8 &&
                 authInput.password.length > 0 && (
