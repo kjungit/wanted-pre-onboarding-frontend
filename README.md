@@ -19,28 +19,28 @@ npm start
 ---
 
 ### 작업내용
-- [ ] 로그인 `/signin`, 회원가입 `/signup`
-  - [ ] 이메일 input에 data-testid="email-input" 속성을 부여
-  - [ ] 패스워드 input에 data-testid="password-input" 속성을 부여
-  - [ ] 회원가입 button에 data-testid="signup-button" 속성을 부여
-  - [ ] 로그인 button에 data-testid="signin-button" 속성을 부여
-  - [ ] 유효성 검사
-    - [ ] 이메일 조건 : `@` 포함 / 비밀번호 조건: 8자 이상
-    - [ ] 유효성 검사 미통과시 button `disabled`
-  - [ ] 회원가입 완료시 로그인 페이지 `/signin` 페이지로 이동
-  - [ ] 로그인 성공시 JWT 로컬스토리지 저장
-  - [ ] 로그인 여부에 따른 리다이렉트 처리
+- [x] 로그인 `/signin`, 회원가입 `/signup`
+  - [x] 이메일 input에 data-testid="email-input" 속성을 부여
+  - [x] 패스워드 input에 data-testid="password-input" 속성을 부여
+  - [x] 회원가입 button에 data-testid="signup-button" 속성을 부여
+  - [x] 로그인 button에 data-testid="signin-button" 속성을 부여
+  - [x] 유효성 검사
+    - [x] 이메일 조건 : `@` 포함 / 비밀번호 조건: 8자 이상
+    - [x] 유효성 검사 미통과시 button `disabled`
+  - [x] 회원가입 완료시 로그인 페이지 `/signin` 페이지로 이동
+  - [x] 로그인 성공시 JWT 로컬스토리지 저장
+  - [x] 로그인 여부에 따른 리다이렉트 처리
 
-- [ ] `/todo` 페이지 접속시 투두 리스트 목록 출력
-  - [ ] 내용 및 완료 여부 포함 / 완료 여부는 `<input type="checkbox" />`
-  - [ ] todo는 `<li>` 태그 사용
-  - [ ] 추가 버튼 클릭시 새로운 todo 추가 후 출력 / 새로고침 시 추가한 todo 유지
-  - [ ] 수정, 삭제버튼 구현
-    - [ ] 수정 버튼에는 data-testid="modify-button" 속성을 부여
-    - [ ] 삭제 버튼에는 data-testid="delete-button" 속성을 부여
-    - [ ] 수정 input창에는 data-testid="modify-input" 속성을 부여
-    - [ ] 제출버튼에는 data-testid="submit-button" 속성을 부여
-    - [ ] 취소버튼에는 data-testid="cancel-button" 속성을 부여
+- [x] `/todo` 페이지 접속시 투두 리스트 목록 출력
+  - [x] 내용 및 완료 여부 포함 / 완료 여부는 `<input type="checkbox" />`
+  - [x] todo는 `<li>` 태그 사용
+  - [x] 추가 버튼 클릭시 새로운 todo 추가 후 출력 / 새로고침 시 추가한 todo 유지
+  - [x] 수정, 삭제버튼 구현
+    - [x] 수정 버튼에는 data-testid="modify-button" 속성을 부여
+    - [x] 삭제 버튼에는 data-testid="delete-button" 속성을 부여
+    - [x] 수정 input창에는 data-testid="modify-input" 속성을 부여
+    - [x] 제출버튼에는 data-testid="submit-button" 속성을 부여
+    - [x] 취소버튼에는 data-testid="cancel-button" 속성을 부여
 
 ---
 
