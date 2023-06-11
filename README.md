@@ -1,5 +1,7 @@
 # wanted-pre-onboarding-frontend
 
+<img src="https://github.com/kjungit/wanted-pre-onboarding-frontend/assets/100064540/b4f08c74-a4e5-4c6b-8af9-58d49f005b1e" width="800px">
+
 - 이름 : 권범준
 - 프로젝트 실행 방법
 
