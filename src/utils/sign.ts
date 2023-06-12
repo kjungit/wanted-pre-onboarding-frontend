@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 // 이메일 유효성 검사 함수
 export const isValidEmail = (email: string) => {
-  const emailPattern = /\S+@\S+\.\S+/;
+  const emailPattern = /@/;
   return emailPattern.test(email);
 };
 
