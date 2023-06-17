@@ -42,9 +42,9 @@ function TodoInput() {
   return (
     <form className="m-auto mt-6 flex max-w-md items-center gap-x-4">
       <input
-        id="email-address"
-        name="email"
-        type="email"
+        id="text"
+        name="text"
+        type="text"
         data-testid="new-todo-input"
         required
         className="min-w-0 flex-auto rounded-md border-2 border-gray-500 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
