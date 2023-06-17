@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { MouseEvent, useContext, useState } from "react";
 import { createTodo } from "../apis/services/post";
 import { TodoContext } from "../hooks/useTodoContext";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +12,8 @@ function TodoInput() {
     setTodo(event.target.value);
   };
 
-  const onClickHandler = () => {
+  const onClickHandler = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (todo === "") {
       toast.error("입력값이 없습니다.", {
         theme: "dark",
